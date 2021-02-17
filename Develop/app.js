@@ -61,7 +61,7 @@ async function askEmployees(){
         case "Engineer":
             createEngineer();
         break;
-        
+
         case "Intern":
             createIntern();
         break;
@@ -69,16 +69,6 @@ async function askEmployees(){
         default:
             process.exit
     }
-    // if(employeeType.employee === 'Engineer'){
-    //     console.log(employeeType)
-    //     createEngineer();
-    // } 
-    // if(employeeType.employee === 'Intern') {
-    //     createIntern();
-    // } 
-    // if(employeeType.name === 'No employees') {
-    //     process.exit
-    // }
 }
  
 async function createEngineer(){
