@@ -10,7 +10,6 @@ class Employee {
     }
     getId(){
         return Number(`${this.id}`)
-
     }
     getEmail(){
         return `${this.email}`
