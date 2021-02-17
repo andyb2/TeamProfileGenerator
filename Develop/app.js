@@ -43,7 +43,6 @@ async function createManager(){
         {message: 'What is your team managers email?', name:'email'},
         {message: 'What is the team managers office number?', name:'officeNumber'},
     ]
- 
     const response = await inquirer.prompt(managerQuestions)
     const manager = new Manager(response.name, response.id, response.email, response.officeNumber)
     employees.push(manager)
@@ -77,7 +76,6 @@ async function createEngineer(){
         {message: 'What is your team managers email?', name:'email'},
         {message: 'What is the engineers Git Hub username?', name:'github'},
     ]
-    
     const response = await inquirer.prompt(engineerQuestions)
     const engineer = new Engineer(response.name, response.id, response.email, response.github)
     employees.push(engineer)
@@ -92,7 +90,6 @@ async function createIntern(){
         {message: 'What is your team managers email?', name:'email'},
         {message: 'What school does the intern go to?', name:'school'},
     ]
-    
     const response = await inquirer.prompt(internQuestions)
     const manager = new Intern(response.name, response.id, response.email, response.school)
     employees.push(manager)
