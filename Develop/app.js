@@ -54,19 +54,31 @@ createManager();
 async function askEmployees(){
     const employeeType = await inquirer
     .prompt([
-        {type: 'list', message: 'What type of employee would you like to add?', name: 'employee', choices: ['Engineer', 'Intern', 'No employees']}
+        {type: 'list', message: 'What type of employee would you like to add?', name: 'employee', choices: ['Engineer', 'Intern', 'No more employees']}
     ])
     
-    if(employeeType.employee === 'Engineer'){
-        console.log(employeeType)
-        createEngineer();
-    } 
-    if(employeeType.employee === 'Intern') {
-        createIntern();
-    } 
-    if(employeeType.name === 'No employees') {
-        process.exit
+    switch(employeeType.employee){
+        case "Engineer":
+            createEngineer();
+        break;
+        
+        case "Intern":
+            createIntern();
+        break;
+
+        default:
+            process.exit
     }
+    // if(employeeType.employee === 'Engineer'){
+    //     console.log(employeeType)
+    //     createEngineer();
+    // } 
+    // if(employeeType.employee === 'Intern') {
+    //     createIntern();
+    // } 
+    // if(employeeType.name === 'No employees') {
+    //     process.exit
+    // }
 }
  
 async function createEngineer(){
