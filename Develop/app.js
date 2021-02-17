@@ -54,7 +54,7 @@ createManager();
  
 async function askEmployees(){
     const employeeType = await inquirer
-    .prompt( [
+    .prompt([
         {type: 'list', message: 'What type of employee would you like to add?', name: 'employee', choices: ['Engineer', 'Intern', 'No employees']}
     ])
     
@@ -62,7 +62,7 @@ async function askEmployees(){
         console.log(employeeType)
         createEngineer();
     } 
-    if(employeeType.name === 'Intern') {
+    if(employeeType.employee === 'Intern') {
         createIntern();
     } 
     if(employeeType.name === 'No employees') {
@@ -70,31 +70,32 @@ async function askEmployees(){
     }
 }
  
-// async function createEngineer(){
-//     const engineerQuestions = [
-//         {message: 'What is the team managers name?', name:'hi'},
-//         {message: 'What is the team managers id?', name:'bye'},
-//         {message: 'What is your team managers email?', name:'righj'},
-//         {message: 'What is the team managers office number?', name:'fdg'},
-//     ]
+async function createEngineer(){
+    const engineerQuestions = [
+        {message: 'What is the engineers name?', name:'name'},
+        {message: 'What is the team managers id?', name:'id'},
+        {message: 'What is your team managers email?', name:'email'},
+        {message: 'What is the engineers Git Hub username?', name:'github'},
+    ]
     
-//     const response = await inquirer.prompt(engineerQuestions)
-//     const engineer = new Manager(response.name, response.id, response.email, response.officeNumber)
-//     employees.push(engineer)
-//     fs.writeFileSync(outputPath , render(employees), 'UTF-8')
-// }
+    const response = await inquirer.prompt(engineerQuestions)
+    const engineer = new Engineer(response.name, response.id, response.email, response.github)
+    employees.push(engineer)
+    fs.writeFileSync(outputPath , render(employees), 'UTF-8')
+    askEmployees();
+}
  
-// async function createIntern(){
-//     const managerQuestions = [
-//         {message: 'What is the team managers name?', name:'name'},
-//         {message: 'What is the team managers id?', name:'id'},
-//         {message: 'What is your team managers email?', name:'email'},
-//         {message: 'What is the team managers office number?', name:'officeNumber'},
-//         {message: 'Which type of team member would you like to add?', name: 'employees'},
-//     ]
+async function createIntern(){
+    const internQuestions = [
+        {message: 'What is the interns name?', name:'name'},
+        {message: 'What is the team managers id?', name:'id'},
+        {message: 'What is your team managers email?', name:'email'},
+        {message: 'What school does the intern go to?', name:'school'},
+    ]
     
-//     const response = await inquirer.prompt(questions)
-//     const manager = new Manager(response.name, response.id, response.email, response.officeNumber)
-//     employees.push(manager)
-//     fs.writeFileSync(outputPath , render(newManager), 'UTF-8')
-// }
+    const response = await inquirer.prompt(internQuestions)
+    const manager = new Intern(response.name, response.id, response.email, response.school)
+    employees.push(manager)
+    fs.writeFileSync(outputPath , render(employees), 'UTF-8')
+    askEmployees();
+}
