@@ -74,8 +74,8 @@ async function askEmployees(){
 async function createEngineer(){
     const engineerQuestions = [
         {message: 'What is the engineers name?', name:'name'},
-        {message: 'What is the team managers id?', name:'id'},
-        {message: 'What is your team managers email?', name:'email'},
+        {message: 'What is the engineers id?', name:'id'},
+        {message: 'What is the engineers email?', name:'email'},
         {message: 'What is the engineers Git Hub username?', name:'github'},
     ]
     const response = await inquirer.prompt(engineerQuestions)
@@ -88,8 +88,8 @@ async function createEngineer(){
 async function createIntern(){
     const internQuestions = [
         {message: 'What is the interns name?', name:'name'},
-        {message: 'What is the team managers id?', name:'id'},
-        {message: 'What is your team managers email?', name:'email'},
+        {message: 'What is the interns id?', name:'id'},
+        {message: 'What is the interns email?', name:'email'},
         {message: 'What school does the intern go to?', name:'school'},
     ]
     const response = await inquirer.prompt(internQuestions)
